@@ -30,6 +30,9 @@ services:
     hostname: api02
     environment:
       - DB_HOSTNAME=db
+      - DB_USER=admin
+      - DB_PASSWORD=123
+      - DB_DATABASE=rinha
     ports:
       - "8082:8080"
  
