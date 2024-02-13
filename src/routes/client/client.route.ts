@@ -57,7 +57,7 @@ router.post('/:id/transacoes', async (req, res) => {
 			});	
 		}
 
-		return res.status(500).json({
+		return res.status(422).json({
 			message: 'Try again later',
 		});
 	}
@@ -93,7 +93,7 @@ router.get('/:id/extrato', async (req, res) => {
 			});	
 		}
 
-		return res.status(500).json({
+		return res.status(422).json({
 			message: 'Try again later',
 		});
 	}

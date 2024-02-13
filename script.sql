@@ -1,10 +1,10 @@
-CREATE TABLE client(
+CREATE UNLOGGED TABLE client(
   id SERIAL PRIMARY KEY,
   account_limit INTEGER NOT NULL,
   account_balance INTEGER NOT NULL
 );
 
-CREATE TABLE transaction(
+CREATE UNLOGGED TABLE transaction(
   id VARCHAR(255) PRIMARY KEY,
   operation_value INTEGER NOT NULL,
   operation_type CHAR(1) NOT NULL,
@@ -12,7 +12,6 @@ CREATE TABLE transaction(
   client_id INTEGER NOT NULL,
   created_at TIMESTAMP DEFAULT current_timestamp
 );
-
 
 INSERT INTO client (id, account_limit, account_balance) VALUES
     (1, 100000, 0),

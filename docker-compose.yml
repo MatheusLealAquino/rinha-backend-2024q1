@@ -22,8 +22,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.6"
-          memory: "200MB"
+          cpus: "0.5"
+          memory: "85MB"
 
   api02:
     <<: *api 
@@ -48,8 +48,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.17"
-          memory: "10MB"
+          cpus: "0.15"
+          memory: "50MB"
 
   db:
     image: postgres:latest
@@ -60,13 +60,15 @@ services:
       - POSTGRES_DB=rinha
     ports:
       - "5432:5432"
+    command: postgres -c config_file=/etc/postgresql/postgresql.conf
     volumes:
       - ./script.sql:/docker-entrypoint-initdb.d/script.sql
+      - ./postgresql.conf:/etc/postgresql/postgresql.conf
     deploy:
       resources:
         limits:
-          cpus: "0.13"
-          memory: "140MB"
+          cpus: "0.35"
+          memory: "280MB"
 
 networks:
   default:
